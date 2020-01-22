@@ -1,0 +1,16 @@
+<div class="clr-row">
+    <div class="clr-col-12">
+        <h1>Owned associations</h1>
+    </div>
+    <div class="clr-col-12">
+        <div class="btn-group">
+            <button class="btn btn-primary" (click)="openCreateAssociation()">Create</button>
+        </div>
+    </div>
+    <div class="clr-col-12">
+        <app-owned-associations-table [associations]="associations$ | async"></app-owned-associations-table>
+    </div>
+</div>
+
+<app-create-association-modal [opened]="createAssociationOpen" (closed)="closeCreateAssociation()"
+    (associationCreated)="createAssociation($event)"></app-create-association-modal>

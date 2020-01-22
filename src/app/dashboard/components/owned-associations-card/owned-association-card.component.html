@@ -1,0 +1,28 @@
+<div class="card">
+    <div class="card-header">
+        Owned associations
+    </div>
+    <div class="card-block">
+        <table *ngIf="associations && associations.length > 0; else noAssociations" class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [routerLink]="['/owned-associations', association.id]" routerLinkActive="true" *ngFor="let association of associations">
+                    <td>{{association.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #noAssociations>
+            No associations owned yet, create one <a (click)="openCreateAssociation()">here</a>.
+        </ng-template>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-sm btn-link" routerLink="/owned-associations" routerLinkActive="active">Manage owned associations</button>
+    </div>
+</div>
+
+<app-create-association-modal [opened]="createAssociationOpen" (closed)="closeCreateAssociation()"
+    (associationCreated)="createAssociation($event)"></app-create-association-modal>

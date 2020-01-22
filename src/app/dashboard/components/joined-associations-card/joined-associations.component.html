@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+        Joined associations
+    </div>
+    <div class="card-block">
+        <table *ngIf="associations && associations.length > 0; else createAssociation" class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let association of associations">
+                    <td>{{association.id}}</td>
+                    <td>{{association.name}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #createAssociation>
+            No associations joined yet.
+        </ng-template>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-sm btn-link">Manage joined associations</button>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="login-wrapper">
+    <form class="login" [formGroup]="form" (ngSubmit)="register()">
+        <section class="title">
+            GameSociation
+            <h5>Register</h5>
+        </section>
+        <div class="login-group">
+            <clr-input-container>
+                <label class="clr-sr-only">Email</label>
+                <input type="email" name="email" clrInput placeholder="Email" formControlName="email" />
+            </clr-input-container>
+            <clr-input-container>
+                <label class="clr-sr-only">Username</label>
+                <input type="text" name="username" clrInput placeholder="Username" formControlName="username" />
+            </clr-input-container>
+            <clr-password-container>
+                <label class="clr-sr-only">Password</label>
+                <input type="password" name="password" clrPassword placeholder="Password" formControlName="password" />
+            </clr-password-container>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Register</button>
+                <button type="button" class="btn btn-danger" routerLink="/account/login"
+                    routerLinkActive="active">Login</button>
+            </div>
+        </div>
+    </form>
+</div>

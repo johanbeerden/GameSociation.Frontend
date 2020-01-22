@@ -1,0 +1,7 @@
+<div class="clr-row">
+    <app-owned-associations-card [associations]="ownedAssociations$ | async"
+        (associationCreated)="createAssociation($event)" class="clr-col-sm-12 clr-col-md-6">
+    </app-owned-associations-card>
+    <app-joined-associations-card [associations]="joinedAssociations$ | async" class="clr-col-sm-12 clr-col-md-6">
+    </app-joined-associations-card>
+</div>

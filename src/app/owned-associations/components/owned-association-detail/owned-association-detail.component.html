@@ -1,0 +1,32 @@
+<div class="clr-row">
+    <div class="clr-col-12">
+        <h1>{{association.name}}</h1>
+    </div>
+
+    <div class="clr-col-sm-12 clr-col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Members
+            </div>
+            <div class="card-block">
+                <div class="btn-group">
+                    <button class="btn btn-primary">Invite associate</button>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let member of association.members">
+                            <td>{{member.associateId}}</td>
+                            <td>{{member.role}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
