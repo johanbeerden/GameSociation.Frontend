@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardFacade } from '../../services/dashboard.facade';
-import { AssociationCreated } from '../../../shared/events/association-created.event';
+import { AssociationCreated } from '../../../../shared/events/association-created.event';
 
 @Component({
   selector: 'app-dashboard',

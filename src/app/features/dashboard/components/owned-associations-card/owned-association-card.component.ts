@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Association } from 'src/app/shared/models/associations/association.model';
-import { AssociationCreated } from '../../../shared/events/association-created.event';
+import { AssociationCreated } from '../../../../shared/events/association-created.event';
 
 @Component({
   selector: 'app-owned-associations-card',

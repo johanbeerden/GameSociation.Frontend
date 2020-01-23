@@ -1,4 +1,4 @@
-import { HttpService } from '../../core/services/http.service';
+import { HttpService } from '../../../core/services/http.service';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { LoginQueryResult, LoginQuery } from '../queries/login.query';

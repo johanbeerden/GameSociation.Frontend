@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { Association } from 'src/app/shared/models/associations/association.model';
 import { AssociationCreated } from 'src/app/shared/events/association-created.event';
 import { AssociationService } from 'src/app/core/services/association.service';
-import { CreateAssociationCommand } from 'src/app/dashboard/commands/create-association.command';
+import { CreateAssociationCommand } from 'src/app/features/dashboard/commands/create-association.command';
 import { GetAssociationQuery } from 'src/app/shared/queries/get-association.query';
 
 @Injectable()

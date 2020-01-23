@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AccountFacade } from 'src/app/account/services/account.facade';
+import { AccountFacade } from 'src/app/features/account/services/account.facade';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({

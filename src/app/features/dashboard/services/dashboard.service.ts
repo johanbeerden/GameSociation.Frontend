@@ -1,5 +1,5 @@
 import { HttpService } from 'src/app/core/services/http.service';
-import { Associate } from "../../shared/models/associations/associate.model";
+import { Associate } from "../../../shared/models/associations/associate.model";
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { GetAssociateByAccountIdQuery } from '../queries/get-associate-by-account-id.query';

@@ -5,7 +5,7 @@ import { OwnedAssociationsFacade } from './services/owned-associations.facade';
 import { OwnedAssociationsState } from './store/owned-associations.state';
 import { NgxsModule } from '@ngxs/store';
 import { OwnedAssociationsTableComponent } from './components/owned-associations-table/owned-associations-table.component';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { OwnedAssociationComponent } from './containers/owned-association/owned-association.component';
 import { OwnedAssociationDetailComponent } from './components/owned-association-detail/owned-association-detail.component';
 
