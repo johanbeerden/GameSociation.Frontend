@@ -1,7 +1,7 @@
 import { Optional, SkipSelf, NgModule } from '@angular/core';
 import { HttpService } from './services/http.service';
 import { NgxsModule } from '@ngxs/store';
-import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
+import { NgxsStoragePluginModule, StorageOption } from '@ngxs/storage-plugin';
 import { TokenService } from './services/token.service';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -22,7 +22,8 @@ const states = [
     imports: [
         NgxsModule.forRoot(states),
         NgxsStoragePluginModule.forRoot({
-            key: 'app'
+            key: 'app',
+            storage: StorageOption.SessionStorage
         }),
         BrowserAnimationsModule,
         ToastrModule.forRoot({ positionClass: 'toast-top-right' })

@@ -5,14 +5,14 @@ export class TokenService {
     private ACCESS_TOKEN = 'access_token';
 
     public setToken(token: string): void {
-        localStorage.setItem(this.ACCESS_TOKEN, token);
+        sessionStorage.setItem(this.ACCESS_TOKEN, token);
     }
 
     public getToken(): string {
-        return localStorage.getItem(this.ACCESS_TOKEN);
+        return sessionStorage.getItem(this.ACCESS_TOKEN);
     }
 
     public clearToken(): void {
-        localStorage.removeItem(this.ACCESS_TOKEN);
+        sessionStorage.removeItem(this.ACCESS_TOKEN);
     }
 }
