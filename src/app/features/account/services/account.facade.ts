@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { AccountService } from './account.service';
-import { Store } from '@ngxs/store';
-import { tap } from 'rxjs/operators';
-import { RegisterCommand } from '../commands/register.command';
-import { LoginQuery } from '../queries/login.query';
-import { TokenService } from 'src/app/core/services/token.service';
-import { Router } from '@angular/router';
-import { Login } from 'src/app/core/store/app.action';
+import {Injectable} from '@angular/core';
+import {AccountService} from '../../../core/services/account.service';
+import {Store} from '@ngxs/store';
+import {tap} from 'rxjs/operators';
+import {RegisterCommand} from '../../../shared/commands/accounts/register.command';
+import {LoginQuery} from '../../../shared/queries/account/login.query';
+import {TokenService} from 'src/app/core/services/token.service';
+import {Router} from '@angular/router';
+import {Login} from 'src/app/core/store/app.action';
 
 @Injectable()
 export class AccountFacade {
@@ -14,9 +14,7 @@ export class AccountFacade {
 
     public register(email: string, password: string, username: string): void {
         const command = new RegisterCommand(email, password, username);
-        this.accountService.register(command).pipe(
-            tap(() => this.router.navigate(['account', 'login']))
-        ).subscribe();
+        this.accountService.register(command).subscribe(() => this.router.navigate(['account', 'login']));
     }
 
     public login(email: string, password: string): void {
@@ -26,8 +24,7 @@ export class AccountFacade {
                 const loginAction = new Login(result.accountId);
                 this.store.dispatch(loginAction);
                 this.tokenService.setToken(result.token);
-                this.router.navigate(['']);
             })
-        ).subscribe();
+        ).subscribe(() => this.router.navigate(['']));
     }
 }

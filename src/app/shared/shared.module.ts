@@ -1,11 +1,11 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { AuthGuard } from './guards/auth.guard';
-import { CreateAssociationModalComponent } from './components/create-association-modal/create-association-modal.component';
-import { ClarityModule } from '@clr/angular';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {CommonModule} from '@angular/common';
+import {HttpClientModule} from '@angular/common/http';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {CreateAssociationModalComponent} from './components/create-association-modal/create-association-modal.component';
+import {ClarityModule} from '@clr/angular';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {AssociationInvitationModalComponent} from './components/association-invitation-modal/association-invitation-modal.component';
 
 @NgModule({
     imports: [
@@ -17,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ReactiveFormsModule 
     ],
     declarations: [
-        CreateAssociationModalComponent
+        CreateAssociationModalComponent,
+        AssociationInvitationModalComponent
     ],
     exports: [
         CommonModule,
@@ -26,10 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         ClarityModule,
         FormsModule,
         ReactiveFormsModule,
-        CreateAssociationModalComponent
-    ],
-    providers: [
-        AuthGuard
+        CreateAssociationModalComponent,
+        AssociationInvitationModalComponent
     ]
 })
 export class SharedModule {}

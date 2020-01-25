@@ -3,21 +3,19 @@
         Joined associations
     </div>
     <div class="card-block">
-        <table *ngIf="associations && associations.length > 0; else createAssociation" class="table">
+        <table *ngIf="associations && associations.length > 0; else noJoinedAssociations" class="table">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Name</th>
+                    <th>Association</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let association of associations">
-                    <td>{{association.id}}</td>
                     <td>{{association.name}}</td>
                 </tr>
             </tbody>
         </table>
-        <ng-template #createAssociation>
+        <ng-template #noJoinedAssociations>
             No associations joined yet.
         </ng-template>
     </div>

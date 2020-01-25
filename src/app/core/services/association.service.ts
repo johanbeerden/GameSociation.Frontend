@@ -1,19 +1,35 @@
-import { Injectable } from "@angular/core";
-import { HttpService } from './http.service';
-import { CreateAssociationCommand } from 'src/app/features/dashboard/commands/create-association.command';
-import { Observable } from 'rxjs';
-import { GetAssociationQuery } from 'src/app/shared/queries/get-association.query';
-import { Association } from 'src/app/shared/models/associations/association.model';
+import {Injectable} from "@angular/core";
+import {HttpService} from './http.service';
+import {CreateAssociationCommand} from 'src/app/shared/commands/associations/create-association.command';
+import {Observable} from 'rxjs';
+import {GetAssociationQuery} from 'src/app/shared/queries/associations/get-association.query';
+import {AssociationDetail} from 'src/app/shared/models/associations/association.model';
+import {InviteToAssociationCommand} from "../../shared/commands/associations/invite-to-association.command";
+import {AcceptInvitationCommand} from "../../shared/commands/associations/accept-invitation.command";
+import {RefuseInvitationCommand} from "../../shared/commands/associations/refuse-invitation.command";
 
 @Injectable()
 export class AssociationService {
-    public constructor(private httpService: HttpService) { }
+    public constructor(private httpService: HttpService) {
+    }
 
     public createAssociation(command: CreateAssociationCommand): Observable<any> {
         return this.httpService.post(`association`, command);
     }
 
-    public getAssociation(query: GetAssociationQuery): Observable<Association> {
+    public getAssociation(query: GetAssociationQuery): Observable<AssociationDetail> {
         return this.httpService.get(`association/${query.id}`);
+    }
+
+    public inviteToAssociation(command: InviteToAssociationCommand): Observable<any> {
+        return this.httpService.post(`association/${command.associationId}/invite`, command);
+    }
+
+    public acceptInvitation(command: AcceptInvitationCommand): Observable<any> {
+        return this.httpService.post(`association/${command.associateId}/membership/${command.associateId}/accept`, command);
+    }
+
+    public refuseInvitation(command: RefuseInvitationCommand): Observable<any> {
+        return this.httpService.post(`association/${command.associateId}/membership/${command.associateId}/refuse`, command);
     }
 }

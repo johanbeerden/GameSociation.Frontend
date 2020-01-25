@@ -1,0 +1,22 @@
+<clr-modal [(clrModalOpen)]="opened" [clrModalStaticBackdrop]="false">
+    <h3 class="modal-title">Invite to association</h3>
+    <div class="modal-body">
+        <form clrForm [formGroup]="form">
+            <h4>Invite users trough their tag (username#123)</h4>
+            <clr-input-container>
+                <label for="username" >Username</label>
+                <input id="username" clrInput type="text" formControlName="username" />
+                <clr-control-error>Username is required</clr-control-error>
+            </clr-input-container>
+            <clr-input-container>
+                <label for="tagNumber">TagNumber</label>
+                <input id="tagNumber" clrInput type="text" formControlName="tagNumber" />
+                <clr-control-error>Tag number is required</clr-control-error>
+            </clr-input-container>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="close()">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="inviteToAssociation()" [disabled]="!form.valid">Invite</button>
+    </div>
+</clr-modal>

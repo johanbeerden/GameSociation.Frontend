@@ -10,23 +10,26 @@
             </div>
             <div class="card-block">
                 <div class="btn-group">
-                    <button class="btn btn-primary">Invite associate</button>
+                    <button class="btn btn-primary" (click)="openInviteToAssociation()">Invite associate</button>
                 </div>
-                <table class="table">
+                <table class="table" >
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>Tag</th>
                             <th>Role</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let member of association.members">
-                            <td>{{member.associateId}}</td>
-                            <td>{{member.role}}</td>
+                            <td>{{member.associate.tag.username}}#{{member.associate.tag.number}}</td>
+                            <td>{{MembershipRole[member.role]}}</td>
+                            <td>{{MembershipStatus[member.status]}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
+    <app-invite-to-association-modal [associationId]="association.id" [opened]="inviteToAssociationOpen" (closed)="closeInviteToAssociation()" (invitedToAssociation)="inviteToAssociation($event)"></app-invite-to-association-modal>
 </div>

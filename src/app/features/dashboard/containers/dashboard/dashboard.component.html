@@ -1,7 +1,14 @@
 <div class="clr-row">
-    <app-owned-associations-card [associations]="ownedAssociations$ | async"
-        (associationCreated)="createAssociation($event)" class="clr-col-sm-12 clr-col-md-6">
+    <app-owned-associations-card class="clr-col-sm-12 clr-col-md-4"
+                                 [associations]="ownedAssociations$ | async"
+                                 (associationCreated)="createAssociation($event)">
     </app-owned-associations-card>
-    <app-joined-associations-card [associations]="joinedAssociations$ | async" class="clr-col-sm-12 clr-col-md-6">
+    <app-joined-associations-card class="clr-col-sm-12 clr-col-md-4"
+                                  [associations]="joinedAssociations$ | async">
     </app-joined-associations-card>
+    <app-invitations-card class="clr-col-sm-12 clr-col-md-4"
+                          [invitations]="invitations$ | async"
+                          (invitationAccepted)="acceptInvitation($event)"
+                          (invitationRefused)="refuseInvitation($event)">
+    </app-invitations-card>
 </div>

@@ -1,0 +1,11 @@
+<clr-modal [(clrModalOpen)]="opened" [clrModalStaticBackdrop]="false" *ngIf="invitation">
+    <h3 class="modal-title">Association invitation</h3>
+    <div class="modal-body">
+        <p>Do you want to accept the invitation from {{invitation.associationName}} ?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline" (click)="close()">Close</button>
+        <button type="button" class="btn btn-danger" (click)="refuse()">Refuse</button>
+        <button type="button" class="btn btn-primary" (click)="accept()">Accept</button>
+    </div>
+</clr-modal>

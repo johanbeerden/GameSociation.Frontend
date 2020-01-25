@@ -3,14 +3,14 @@
     <div class="modal-body">
         <form clrForm [formGroup]="form">
             <clr-input-container>
-                <label>Name</label>
-                <input clrInput type="text" formControlName="name" />
+                <label for="name" >Name</label>
+                <input id="name" clrInput type="text" formControlName="name" />
                 <clr-control-error>Association name is required</clr-control-error>
             </clr-input-container>
         </form>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline" (click)="close()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="create()">Create</button>
+        <button type="button" class="btn btn-primary" (click)="create()" [disabled]="!form.valid">Create</button>
     </div>
 </clr-modal>

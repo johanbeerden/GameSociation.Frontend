@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { OwnedAssociationsFacade } from '../../services/owned-associations.facade';
-import { AssociationCreated } from 'src/app/shared/events/association-created.event';
+import {Component, OnInit} from '@angular/core';
+import {OwnedAssociationsFacade} from '../../services/owned-associations.facade';
+import {AssociationCreated} from 'src/app/shared/events/association-created.event';
 
 @Component({
   selector: 'app-owned-associations',
@@ -18,7 +18,7 @@ export class OwnedAssociationsComponent implements OnInit {
 
   public createAssociation($event: AssociationCreated): void {
     this.closeCreateAssociation();
-    this.ownedAssociationsFacade.createAssociation($event);
+    this.ownedAssociationsFacade.createAssociation($event.name);
   }
 
   public openCreateAssociation(): void {
