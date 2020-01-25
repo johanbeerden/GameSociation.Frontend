@@ -1,0 +1,22 @@
+<table class="table" *ngIf="invitations && invitations.length > 0; else noInvitations" >
+    <thead>
+    <tr>
+        <th>Association</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="mouse-hover" *ngFor="let invitation of invitations" (click)="openAcceptInvitation(invitation)">
+        <td>{{invitation.associationName}}</td>
+    </tr>
+    </tbody>
+</table>
+<ng-template #noInvitations>
+    No invitations yet.
+</ng-template>
+
+<app-association-invitation-modal [opened]="acceptInvitationOpen"
+                                  [invitation]="selectedInvitation"
+                                  (closed)="closeAcceptInvitation()"
+                                  (invitationAccepted)="acceptInvitation($event)"
+                                  (invitationRefused)="refuseInvitation($event)">
+</app-association-invitation-modal>

@@ -10,17 +10,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr [routerLink]="['/owned-associations', association.id]" routerLinkActive="true" *ngFor="let association of associations">
+                <tr class="mouse-hover" [routerLink]="['/associations', association.id]" routerLinkActive="true" *ngFor="let association of associations">
                     <td>{{association.name}}</td>
                 </tr>
             </tbody>
         </table>
         <ng-template #noAssociations>
-            No associations owned yet, create one <a (click)="openCreateAssociation()">here</a>.
+            No associations owned yet, create one <a (click)="openCreateAssociation()"><b class="mouse-hover">here</b></a>.
         </ng-template>
     </div>
     <div class="card-footer">
-        <button class="btn btn-sm btn-link" routerLink="/owned-associations" routerLinkActive="active">Manage owned associations</button>
+        <button class="btn btn-sm btn-link" routerLink="/associations" routerLinkActive="active">Manage associations</button>
     </div>
 </div>
 

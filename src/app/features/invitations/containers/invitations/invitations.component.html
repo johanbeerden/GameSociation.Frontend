@@ -1,0 +1,8 @@
+<h1>Invitations</h1>
+<hr/>
+<div class="clr-row">
+    <app-invitations-table class="clr-col-12" [invitations]="invitations$ | async"
+                           (invitationAccepted)="acceptInvitation($event)"
+                           (invitationRefused)="refuseInvitation($event)">
+    </app-invitations-table>
+</div>

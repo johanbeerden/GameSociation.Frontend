@@ -6,6 +6,7 @@ import {CreateAssociationModalComponent} from './components/create-association-m
 import {ClarityModule} from '@clr/angular';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AssociationInvitationModalComponent} from './components/association-invitation-modal/association-invitation-modal.component';
+import { InvitationsTableComponent } from './components/invitations-table/invitations-table.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import {AssociationInvitationModalComponent} from './components/association-invi
     ],
     declarations: [
         CreateAssociationModalComponent,
-        AssociationInvitationModalComponent
+        AssociationInvitationModalComponent,
+        InvitationsTableComponent
     ],
     exports: [
         CommonModule,
@@ -28,7 +30,8 @@ import {AssociationInvitationModalComponent} from './components/association-invi
         FormsModule,
         ReactiveFormsModule,
         CreateAssociationModalComponent,
-        AssociationInvitationModalComponent
+        AssociationInvitationModalComponent,
+        InvitationsTableComponent
     ]
 })
 export class SharedModule {}

@@ -1,0 +1,37 @@
+<div class="clr-row" *ngIf="association">
+    <div class="clr-col-12">
+        <h1>{{association.name}}</h1>
+    </div>
+
+    <div class="clr-col-sm-12 clr-col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Members
+            </div>
+            <div class="card-block">
+                <button class="btn btn-primary" (click)="openInviteToAssociation()">Invite associate</button>
+                <button class="btn btn-danger" (click)="openLeaveAssociation()">Leave association</button>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Tag</th>
+                        <th>Role</th>
+                        <th>Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let member of association.members">
+                        <td>{{member.associate.tag.username}}#{{member.associate.tag.number}}</td>
+                        <td>{{MembershipRole[member.role]}}</td>
+                        <td>{{MembershipStatus[member.status]}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <app-invite-to-association-modal [associationId]="association.id" [opened]="inviteToAssociationOpen"
+                                     (closed)="closeInviteToAssociation()"
+                                     (invitedToAssociation)="inviteToAssociation($event)"></app-invite-to-association-modal>
+    <app-leave-association-modal [opened]="leaveAssociationOpen" (closed)="closeLeaveAssociation()" (associationLeft)="leaveAssociation($event)"></app-leave-association-modal>
+</div>

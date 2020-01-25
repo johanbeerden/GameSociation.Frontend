@@ -3,30 +3,11 @@
         Invitations
     </div>
     <div class="card-block">
-        <table *ngIf="invitations && invitations.length > 0; else noInvitations" class="table">
-            <thead>
-            <tr>
-                <th>Association</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr *ngFor="let invitation of invitations" (click)="openAcceptInvitation(invitation)">
-                <td>{{invitation.associationName}}</td>
-            </tr>
-            </tbody>
-        </table>
-        <ng-template #noInvitations>
-            No invitations yet.
-        </ng-template>
+        <app-invitations-table [invitations]="invitations" (invitationRefused)="refuseInvitation($event)"
+                               (invitationAccepted)="acceptInvitation($event)">
+        </app-invitations-table>
     </div>
     <div class="card-footer">
         <button class="btn btn-sm btn-link">Manage invitations</button>
     </div>
 </div>
-
-<app-association-invitation-modal [opened]="acceptInvitationOpen"
-                                  [invitation]="selectedInvitation"
-                                  (closed)="closeAcceptInvitation()"
-                                  (invitationAccepted)="acceptInvitation($event)"
-                                  (invitationRefused)="refuseInvitation($event)">
-</app-association-invitation-modal>

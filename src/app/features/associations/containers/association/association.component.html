@@ -1,0 +1,4 @@
+<app-association-detail [association]="association$ | async"
+                        (invitedToAssociation)="inviteToAssociation($event)"
+                        (associationLeft)="leaveAssociation($event)">
+</app-association-detail>

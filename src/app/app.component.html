@@ -1,5 +1,5 @@
 <clr-main-container>
-    <clr-header *ngIf="isLoggedIn()" class="header">
+    <clr-header *ngIf="isLoggedIn()" class="header" [clr-nav-level]="2">
         <div class="branding">
             <div class="title">GameSociation</div>
         </div>
@@ -16,15 +16,20 @@
         </div>
     </clr-header>
     <div class="content-container">
-        <clr-vertical-nav *ngIf="isLoggedIn()" [clr-nav-level]="1">
+        <clr-vertical-nav *ngIf="isLoggedIn()" [clr-nav-level]="1" [clrVerticalNavCollapsible]="true"
+                          [(clrVerticalNavCollapsed)]="verticalNavigationCollapsed">
             <section class="sidenav-content">
                 <a clrVerticalNavLink routerLink="/dashboard" routerLinkActive="active">
-                    <clr-icon clrVerticalNavIcon shape="home" class="is-solid"></clr-icon>
+                    <clr-icon clrVerticalNavIcon shape="dashboard" class="is-solid"></clr-icon>
                     Dashboard
                 </a>
-                <a clrVerticalNavLink routerLink="/owned-associations" routerLinkActive="active">
-                    <clr-icon clrVerticalNavIcon shape="crown" class="is-solid"></clr-icon>
-                    Owned
+                <a clrVerticalNavLink routerLink="/associations" routerLinkActive="active">
+                    <clr-icon clrVerticalNavIcon shape="users" class="is-solid"></clr-icon>
+                    Associations
+                </a>
+                <a clrVerticalNavLink routerLink="/invitations" routerLinkActive="active">
+                    <clr-icon clrVerticalNavIcon shape="envelope" class="is-solid"></clr-icon>
+                    Invitations
                 </a>
             </section>
         </clr-vertical-nav>

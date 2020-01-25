@@ -7,6 +7,7 @@ import {AssociationDetail} from 'src/app/shared/models/associations/association.
 import {InviteToAssociationCommand} from "../../shared/commands/associations/invite-to-association.command";
 import {AcceptInvitationCommand} from "../../shared/commands/associations/accept-invitation.command";
 import {RefuseInvitationCommand} from "../../shared/commands/associations/refuse-invitation.command";
+import {LeaveAssociationCommand} from "../../shared/commands/associations/leave-association.command";
 
 @Injectable()
 export class AssociationService {
@@ -31,5 +32,9 @@ export class AssociationService {
 
     public refuseInvitation(command: RefuseInvitationCommand): Observable<any> {
         return this.httpService.post(`association/${command.associateId}/membership/${command.associateId}/refuse`, command);
+    }
+
+    public leaveAssociation(command: LeaveAssociationCommand): Observable<any> {
+        return this.httpService.post(`association/${command.associationId}/membership/${command.associateId}/leave`, command);
     }
 }

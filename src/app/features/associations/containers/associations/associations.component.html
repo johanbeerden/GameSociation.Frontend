@@ -1,0 +1,8 @@
+<h1>Associations</h1>
+<hr/>
+<div class="clr-row">
+    <div class="clr-col-sm-12">
+        <app-associations-table [associations]="associations$ | async" (associationCreated)="createAssociation($event)"></app-associations-table>
+    </div>
+</div>
+

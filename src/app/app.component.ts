@@ -13,7 +13,9 @@ import { AppState } from './core/store/app.state';
 })
 export class AppComponent {
   @Select(AppState.tag) public tag$: Observable<string>;
-  
+
+  public verticalNavigationCollapsed = true;
+
   public constructor(private authenticationService: AuthenticationService, private store: Store, private router: Router) { }
 
   public isLoggedIn(): boolean {

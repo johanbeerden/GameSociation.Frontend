@@ -8,6 +8,7 @@ import {GetAssociateByAccountIdQuery} from "../../shared/queries/associates/get-
 import {Associate} from "../../shared/models/associations/associate.model";
 import {GetInvitationsQuery} from "../../shared/queries/associates/get-invitations.query";
 import {Invitation} from "../../shared/models/associations/invitation.model";
+import {GetAssociationsQuery} from "../../shared/queries/associates/get-associations.query";
 
 @Injectable()
 export class AssociateService {
@@ -28,5 +29,9 @@ export class AssociateService {
 
     public getInvitations(query: GetInvitationsQuery): Observable<Invitation[]> {
         return this.httpService.get(`associate/${query.associateId}/invitations`);
+    }
+
+    public getAssociations(query: GetAssociationsQuery): Observable<Association[]> {
+        return this.httpService.get(`associate/${query.associateId}/association`);
     }
 }

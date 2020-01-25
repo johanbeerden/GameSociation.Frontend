@@ -10,7 +10,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let association of associations">
+                <tr class="mouse-hover" [routerLink]="['/associations', association.id]" routerLinkActive="true" *ngFor="let association of associations">
                     <td>{{association.name}}</td>
                 </tr>
             </tbody>
@@ -20,6 +20,6 @@
         </ng-template>
     </div>
     <div class="card-footer">
-        <button class="btn btn-sm btn-link">Manage joined associations</button>
+        <button class="btn btn-sm btn-link" routerLink="/associations" routerLinkActive="active">Manage associations</button>
     </div>
 </div>

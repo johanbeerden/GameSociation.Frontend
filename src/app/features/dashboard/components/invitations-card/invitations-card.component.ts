@@ -4,33 +4,19 @@ import {InvitationAccepted} from "../../../../shared/events/invitation-accepted.
 import {InvitationRefused} from "../../../../shared/events/invitation-refused.event";
 
 @Component({
-  selector: 'app-invitations-card',
-  templateUrl: './invitations-card.component.html'
+    selector: 'app-invitations-card',
+    templateUrl: './invitations-card.component.html'
 })
 export class InvitationsCardComponent {
-  @Input() public invitations: Invitation[];
-  @Output() public invitationAccepted = new EventEmitter<InvitationAccepted>();
-  @Output() public invitationRefused = new EventEmitter<InvitationRefused>();
-  public acceptInvitationOpen = false;
-  public selectedInvitation: Invitation;
+    @Input() public invitations: Invitation[];
+    @Output() public invitationAccepted = new EventEmitter<InvitationAccepted>();
+    @Output() public invitationRefused = new EventEmitter<InvitationRefused>();
 
-  public openAcceptInvitation(invitation: Invitation) {
-    this.selectedInvitation = invitation;
-    this.acceptInvitationOpen = true;
-  }
+    public acceptInvitation($event: InvitationAccepted): void {
+        this.invitationAccepted.emit($event);
+    }
 
-  public closeAcceptInvitation() {
-    this.acceptInvitationOpen = false;
-    this.selectedInvitation = null;
-  }
-
-  public acceptInvitation($event: InvitationAccepted): void {
-    this.closeAcceptInvitation();
-    this.invitationAccepted.emit($event);
-  }
-
-  public refuseInvitation($event: InvitationRefused): void {
-    this.closeAcceptInvitation();
-    this.invitationRefused.emit($event);
-  }
+    public refuseInvitation($event: InvitationRefused): void {
+        this.invitationRefused.emit($event);
+    }
 }
