@@ -1,6 +1,12 @@
 <div class="clr-row" *ngIf="association">
     <div class="clr-col-12">
-        <h1>{{association.name}}</h1>
+        <h1>
+            <button class="btn btn-icon btn-primary mouse-hover" [routerLink]="['/associations']">
+                <clr-icon shape="caret left"></clr-icon>
+            </button>
+            {{association.name}}
+        </h1>
+        <hr/>
     </div>
 
     <div class="clr-col-sm-12 clr-col-md-8">
@@ -17,6 +23,7 @@
                         <th>Tag</th>
                         <th>Role</th>
                         <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -24,6 +31,11 @@
                         <td>{{member.associate.tag.username}}#{{member.associate.tag.number}}</td>
                         <td>{{MembershipRole[member.role]}}</td>
                         <td>{{MembershipStatus[member.status]}}</td>
+                        <td>
+                            <a class="mouse-hover">
+                                <clr-icon shape="ellipsis-vertical"></clr-icon>
+                            </a>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -33,5 +45,9 @@
     <app-invite-to-association-modal [associationId]="association.id" [opened]="inviteToAssociationOpen"
                                      (closed)="closeInviteToAssociation()"
                                      (invitedToAssociation)="inviteToAssociation($event)"></app-invite-to-association-modal>
-    <app-leave-association-modal [opened]="leaveAssociationOpen" (closed)="closeLeaveAssociation()" (associationLeft)="leaveAssociation($event)"></app-leave-association-modal>
+    <app-leave-association-modal [opened]="leaveAssociationOpen" (closed)="closeLeaveAssociation()"
+                                 (associationLeft)="leaveAssociation($event)"></app-leave-association-modal>
+    <app-kick-associate-modal [opened]="kickAssociateOpen" (closed)="closeKickAssociate()"
+                              (associateKicked)="kickAssociate($event)"></app-kick-associate-modal>
 </div>
+

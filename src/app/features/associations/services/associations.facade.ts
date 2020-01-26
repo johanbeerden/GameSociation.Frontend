@@ -15,6 +15,7 @@ import {InviteToAssociationCommand} from "../../../shared/commands/associations/
 import {GetAssociationsQuery} from "../../../shared/queries/associates/get-associations.query";
 import {LeaveAssociationCommand} from "../../../shared/commands/associations/leave-association.command";
 import {Router} from "@angular/router";
+import {KickAssociateCommand} from "../../../shared/commands/associations/kick-associate.command";
 
 @Injectable()
 export class AssociationsFacade {
@@ -68,5 +69,15 @@ export class AssociationsFacade {
         this.associationService.leaveAssociation(new LeaveAssociationCommand(associate.id, associationId, associate.id)).subscribe(() => {
             this.router.navigate(['associations']);
         });
+    }
+
+    public kickAssociate(associationId: string, associateId: string): void {
+        const associate = this.store.selectSnapshot(AppState.associate);
+        this.associationService.kickAssociate(new KickAssociateCommand(associate.id, associationId, associateId)).pipe(
+            switchMap(() => this.associationService.getAssociation(new GetAssociationQuery(associationId)))
+        ).subscribe((association: AssociationDetail) => {
+            const action = new LoadAssociation(association);
+            this.store.dispatch(action);
+        })
     }
 }

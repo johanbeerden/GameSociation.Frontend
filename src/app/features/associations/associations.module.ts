@@ -9,7 +9,8 @@ import {SharedModule} from '../../shared/shared.module';
 import {AssociationComponent} from './containers/association/association.component';
 import {AssociationDetailComponent} from './components/association-detail/association-detail.component';
 import {InviteToAssociationModalComponent} from './components/invite-to-association-modal/invite-to-association-modal.component';
-import { LeaveAssociationModalComponent } from './components/leave-association-modal/leave-association-modal.component';
+import {LeaveAssociationModalComponent} from './components/leave-association-modal/leave-association-modal.component';
+import {KickAssociateModalComponent} from './components/kick-associate-modal/kick-associate-modal.component';
 
 const states = [
   AssociationsState
@@ -22,7 +23,8 @@ const states = [
     AssociationComponent,
     AssociationDetailComponent,
     InviteToAssociationModalComponent,
-    LeaveAssociationModalComponent
+    LeaveAssociationModalComponent,
+    KickAssociateModalComponent
   ],
   imports: [
     AssociationsRoutingModule,

@@ -1,4 +1,5 @@
 <app-association-detail [association]="association$ | async"
                         (invitedToAssociation)="inviteToAssociation($event)"
-                        (associationLeft)="leaveAssociation($event)">
+                        (associationLeft)="leaveAssociation($event)"
+                        (associateKicked)="kickAssociate($event)">
 </app-association-detail>
